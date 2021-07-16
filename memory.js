@@ -1,6 +1,48 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-    var pictures = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png"];
+    var cards = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png"];
+
+    var cards_positions= new Array(12);
+
+    var pictures = new Array(12);
+
+    var drawn = false;
+
+    var random_value = 0;
+
+    function random(){
+       return  Math.floor(Math.random()*12+1);
+    }
+
+    function random_tab(){
+        var wylosowano = new Array(12);
+         
+        for(i=0; i<wylosowano.length; i++){
+             do{
+
+                random_value = random();
+                drawn = true;
+
+                for(j=0; j<wylosowano.length; j++){
+                  if(wylosowano[j] == random_value){
+                    drawn = false;
+                  }
+                }
+
+            if(drawn == true){
+                wylosowano[i] = random_value;  
+            }
+
+        }while(drawn != true);
+    }
+        return wylosowano;
+    }
+
+    cards_positions = random_tab();
+
+    for(i=0; i<cards_positions.length; i++){
+        pictures[i] = cards[cards_positions[i]-1];
+    }
 
     var divs = new Array(12);
     for(i=0; i<12; i++){
