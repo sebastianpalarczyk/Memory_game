@@ -1,6 +1,10 @@
-document.addEventListener("DOMContentLoaded", function(){
+$(document).ready(function(){
 
     var cards = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png"];
+
+    var yes = new Audio("yes.wav");
+
+    var reveal_sound = new Audio("reveal_sound.wav");
 
     var cards_positions= new Array(12);
 
@@ -15,27 +19,27 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function random_tab(){
-        var wylosowano = new Array(12);
+        var randomly_drawn_layout = new Array(12);
          
-        for(i=0; i<wylosowano.length; i++){
+        for(i=0; i<randomly_drawn_layout.length; i++){
              do{
 
                 random_value = random();
                 drawn = true;
 
-                for(j=0; j<wylosowano.length; j++){
-                  if(wylosowano[j] == random_value){
+                for(j=0; j<randomly_drawn_layout.length; j++){
+                  if(randomly_drawn_layout[j] == random_value){
                     drawn = false;
                   }
                 }
 
             if(drawn == true){
-                wylosowano[i] = random_value;  
+                randomly_drawn_layout[i] = random_value;  
             }
 
         }while(drawn != true);
     }
-        return wylosowano;
+        return randomly_drawn_layout;
     }
 
     cards_positions = random_tab();
@@ -72,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
        $("#"+this.id).css('background-image', picture);
        $('#'+this.id).addClass('cardA');
        $('#'+this.id).removeClass('card');
+       
 
        if(oneVisible == false){
         
@@ -79,18 +84,21 @@ document.addEventListener("DOMContentLoaded", function(){
         oneVisible = true;
         firstCardNumber = this.id;
         lock = false;
+        yes.play();
 
        }else{
         
         // second card
         
         secondCardNumber = this.id;
+        yes.play();
 
         if(pictures[firstCardNumber] == pictures[secondCardNumber]){
             
             setTimeout(function(){hide2Cards(secondCardNumber, firstCardNumber)}, 750);
             $('#'+firstCardNumber).off('click');
             $('#'+secondCardNumber).off('click');
+            reveal_sound.play();
 
         }else{
 
