@@ -127,6 +127,13 @@ $(document).ready(function(){
         if(pairsLeft == 0){
 
             $('.board').html('<h1> You win! <br> You done in '+turnCounter+' turns</h1>');
+            const button = $('<button>');
+            button.html('Zagraj jeszcze raz!');
+            button.addClass('button');
+            button.on('click', function(){
+                location.reload();
+            })
+            $('.board').append(button);
         }
 
         lock = false;

@@ -78,6 +78,17 @@ p
 	letter-spacing: 2px;
 }
 
+.button
+{ 
+	width: 125px;
+	height: 75px;
+    background-color: #209781;
+    color: #26282E;
+	cursor: pointer;
+	font-family: 'Lobster', sans-serif;
+	border-radius: 4px;
+}
+
 
 
 
