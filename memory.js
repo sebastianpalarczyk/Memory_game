@@ -1,5 +1,13 @@
 
 $(document).ready(function(){
+    
+    var cards_visible = document.querySelectorAll(".card");
+    console.log(cards_visible);
+
+    cards_visible.forEach(card=>
+        $(card).css('background-image','url(img/karta.png')
+    );
+    
     var cards = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png"];
 
     var yes = new Audio("yes.wav");
