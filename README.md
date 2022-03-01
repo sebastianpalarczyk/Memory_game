@@ -8,7 +8,7 @@
 
 ## Description
 
-Classic memory game using characters from Gwent - The Witcher Card Game. The action in the game is written in two versions. The first with Javascipt, and the second with the jQuery library.
+Classic memory game using characters from Gwent - The Witcher Card Game. The action in the game is written using the jQuery library.
 
 ## Overview
 <img src="demo.gif" alt="Welcome gif" width="600">
